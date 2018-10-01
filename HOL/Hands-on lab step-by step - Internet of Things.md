@@ -89,7 +89,7 @@ In this hands-on lab, you will construct an end-to-end solution for an IoT scena
 
     -   Azure SDK 2.9 or later (Included with Visual Studio 2017)
 
-3.  A running HDInsight Spark cluster (see [Before the Hands-on Lab](#_Before_the_Hands-on)).
+3.  A running HDInsight Spark cluster (see [Before the Hands-on Lab](https://github.com/Microsoft/MCW-Internet-of-Things/blob/master/HOL/Setup.md#before-the-hands-on-lab)).
 
 
 ## Exercise 1: Environment setup
