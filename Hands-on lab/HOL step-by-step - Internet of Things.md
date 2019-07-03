@@ -950,10 +950,11 @@ In this task, you will create a new Databricks notebook to perform some processi
 
     ```python
     # Mount the blob storage account at /mnt/smartmeters. This assumes your container name is smartmeters, and you have a folder named smartmeters within that container, as specified in the exercises above.
-    dbutils.fs.mount(
-      source = "wasbs://smartmeters@" + accountName + ".blob.core.windows.net/smartmeters",
-      mount_point = "/mnt/smartmeters",
-      extra_configs = {"fs.azure.account.key." + accountName + ".blob.core.windows.net": accountKey})
+    if not any(mount.mountPoint == '/mnt/smartmeters' for mount in dbutils.fs.mounts()):
+      dbutils.fs.mount(
+        source = "wasbs://smartmeters@" + accountName + ".blob.core.windows.net/smartmeters",
+        mount_point = "/mnt/smartmeters",
+        extra_configs = {"fs.azure.account.key." + accountName + ".blob.core.windows.net": accountKey})
     ```
 
     > **Note**: Mounting Azure Blob storage directly to DBFS allows you to access files as if they were on the local file system.
